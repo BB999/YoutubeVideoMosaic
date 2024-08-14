@@ -1,0 +1,37 @@
+#subtitle-overlay {
+  position: absolute;
+  z-index: 1000;
+  pointer-events: auto;
+}
+
+.overlay-handle {
+  position: absolute;
+  background-color: transparent; /* 背景色を透明に設定 */
+}
+
+.top-handle, .bottom-handle {
+  width: 100%;
+  height: 10px;
+  cursor: ns-resize;
+}
+
+.left-handle, .right-handle {
+  width: 10px;
+  height: 100%;
+  cursor: ew-resize;
+}
+
+.top-handle { top: 0; }
+.bottom-handle { bottom: 0; }
+.left-handle { left: 0; }
+.right-handle { right: 0; }
+
+/* YouTubeプレーヤーに対するスタイル */
+.ytp-caption-window-container {
+  display: none !important;
+}
+
+/* オーバーレイがビデオコントロールの上に表示されるようにする */
+.html5-video-player .ytp-chrome-bottom {
+  z-index: 1001 !important;
+}
