@@ -28,7 +28,7 @@
 
 /* YouTubeプレーヤーに対するスタイル */
 .ytp-caption-window-container {
-  display: none !important;
+  display: block !important;
 }
 
 /* オーバーレイがビデオコントロールの上に表示されるようにする */

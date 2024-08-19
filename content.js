@@ -62,6 +62,12 @@ function createOverlay() {
   isOverlayVisible = loadOverlayVisibility();
   overlay.style.display = isOverlayVisible ? 'block' : 'none';
 
+  // オーバーレイが非表示の場合、字幕を表示する
+  const subtitlesContainer = document.querySelector('.ytp-caption-window-container');
+  if (subtitlesContainer) {
+    subtitlesContainer.style.display = isOverlayVisible ? 'none' : 'block';
+  }
+
   // オーバーレイのスタイルを設定
   overlay.style.position = 'absolute';
   overlay.style.zIndex = '1000';
@@ -264,9 +270,13 @@ document.addEventListener('keydown', function(event) {
 // オーバーレイのオン・オフを切り替える関数
 function toggleOverlay() {
   const overlay = document.getElementById('subtitle-overlay');
+  const subtitlesContainer = document.querySelector('.ytp-caption-window-container');
   if (overlay) {
     const isVisible = overlay.style.display !== 'none';
     overlay.style.display = isVisible ? 'none' : 'block';
+    if (subtitlesContainer) {
+      subtitlesContainer.style.display = isVisible ? 'block' : 'none';
+    }
     saveOverlayVisibility(!isVisible);
     console.log("オーバーレイの表示を切り替えました:", !isVisible);
   } else {
